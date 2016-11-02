@@ -22,5 +22,16 @@ public class World {
 	public void addHeart(Heart heart) {
 		hearts.add(heart);
 	}
+	
+	public String toString() {
+		return "Bird: " + bird.getName() + 
+				" PosX: " + bird.getPositionX() + 
+				" PosY: " + bird.getPositionY() + 
+				"\nHearts: " + hearts.size() + " Tubes: " + tubes.size();
+	}
+
+	public Bird getBird() {
+		return bird;
+	}
 
 }
