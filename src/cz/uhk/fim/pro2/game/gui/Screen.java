@@ -8,6 +8,7 @@ public abstract class Screen extends JPanel {
 	
 	public Screen(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
+		setLayout(null);
 	}
 
 }
