@@ -13,16 +13,19 @@ public class Tube {
 	private float positionX;
 	private float height;
 	private Color color;
+	private boolean flew;
 	
 	private static final int GAP = 200;
+	private static final int WIDTH = 50;
 	
 	public Tube(float positionX, float height, Color color) {
 		super();
 		this.positionX = positionX;
 		this.height = height;
 		this.color = color;
+		flew = false;
 	}
-	
+
 	public void paint(Graphics g) {
 		g.setColor(Color.GREEN);
 		
@@ -47,7 +50,7 @@ public class Tube {
 	
 	public Rectangle getTopRectangle() {
 		return new Rectangle(
-			(int) getPositionX() - 25, 
+			(int) getPositionX() - (WIDTH / 2), 
 			0,
 			50,
 			(int) height - GAP 
@@ -56,17 +59,37 @@ public class Tube {
 	
 	public Rectangle getBottomRectangle() {
 		return new Rectangle(
-			(int) getPositionX() - 25, 
+			(int) getPositionX() - (WIDTH / 2), 
 			(int) height,
 			50,
 			(int) (MainFrame.HEIGHT - height) 
 		);
 	}
 	
+	public int getCenterY() {
+		return (int) (height - (GAP / 2.0));
+	}
+	
+	public int getMinX() {
+		return (int) (positionX - (WIDTH / 2));
+	}
+	
+	public int getMaxX() {
+		return (int) (positionX + (WIDTH / 2));
+	}
+	
 	public void update(float deltaTime) {
 		positionX -= World.SPEED * deltaTime;
 	}
 	
+	public boolean isFlew() {
+		return flew;
+	}
+	
+	public void setFlew(boolean flew) {
+		this.flew = flew;
+	}
+
 	public float getPositionX() {
 		return positionX;
 	}

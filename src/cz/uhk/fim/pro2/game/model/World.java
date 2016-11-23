@@ -32,7 +32,15 @@ public class World {
 			tube.update(deltaTime);
 			
 			if(bird.colliedWith(tube)) {
+				tube.setFlew(true);
 				worldListener.crashTube(tube);
+			} else {
+				if(!tube.isFlew() && 
+					bird.getPositionX() > tube.getMinX() && 
+					bird.getPositionX() < tube.getMaxX()) {
+						bird.addPoint();
+						tube.setFlew(true);
+				}
 			}
 		}
 		
@@ -41,7 +49,7 @@ public class World {
 			
 			if(bird.colliedWith(heart)) {
 				worldListener.catchHeart(heart);
-			}
+			} 
 		}
 	}
 	

@@ -9,13 +9,17 @@ import cz.uhk.fim.pro2.game.gui.MainFrame;
 
 public class Bird {
 
+	public static final int DEFAULT_SCORE = 0;
+	public static final int DEFAULT_LIVES = 3;
+	public static final int JUMP = 500;
+	
 	private static final int GRAVITY = 300;
-	private static final int JUMP = 500;
 	
 	private String name;
 	private float positionX, positionY;
 	private float speed;
 	private int lives;
+	private int score;
 	
 	//TODO
 	//konstruktor, gettery, settery a toString()
@@ -24,8 +28,9 @@ public class Bird {
 		this.name = name;
 		this.positionX = positionX;
 		this.positionY = positionY;
-		speed = 0;
-		lives = 3;
+		speed = JUMP / 2;
+		lives = DEFAULT_LIVES;
+		score = DEFAULT_SCORE;
 	}
 	
 	public void paint(Graphics g) {
@@ -84,6 +89,30 @@ public class Bird {
 		speed = JUMP;
 	}
 	
+	public void catchHeart() {
+		lives++;
+	}
+	
+	public void die() {
+		
+	}
+	
+	public void addLive() {
+		
+	}
+	
+	public void removeLive() {
+		lives--;
+	}
+	
+	public void addPoint() {
+		score++;
+	}
+	
+	public boolean isAlive() {
+		return lives > 0;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -115,24 +144,12 @@ public class Bird {
 		this.lives = lives;
 	}
 
+	public int getScore() {
+		return score;
+	}
+
 	public void setPositionX(float positionX) {
 		this.positionX = positionX;
-	}
-	
-	public void catchHeart() {
-		
-	}
-	
-	public void die() {
-		
-	}
-	
-	public void addLive() {
-		
-	}
-	
-	public void removeLive() {
-		
 	}
 	
 }
