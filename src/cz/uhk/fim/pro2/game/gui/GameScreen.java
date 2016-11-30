@@ -73,12 +73,14 @@ public class GameScreen extends Screen implements WorldListener {
 		
 		bird = new Bird("Martin", 240, 400);
 		World world = new World(bird, this);
-		world.addTube(new Tube(400, 400, Color.GREEN));
+		world.generateRandom();
+		
+		/*world.addTube(new Tube(400, 400, Color.GREEN));
 		world.addTube(new Tube(600, 300, Color.GREEN));
 		world.addTube(new Tube(800, 500, Color.GREEN));
 		
 		world.addHeart(new Heart(500, 300));
-		world.addHeart(new Heart(700, 600));
+		world.addHeart(new Heart(700, 600));*/
 		
 		GameCanvas gameCanvas = new GameCanvas(world);
 		gameCanvas.setBounds(0, 0, MainFrame.WIDTH, MainFrame.HEIGHT);

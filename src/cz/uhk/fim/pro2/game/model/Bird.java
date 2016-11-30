@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+import cz.uhk.fim.pro2.game.gui.GameCanvas;
 import cz.uhk.fim.pro2.game.gui.MainFrame;
 
 
@@ -73,16 +74,11 @@ public class Bird {
 		return getRectangle().intersects(heart.getRectangle());
 	}
 	
-	public boolean isOutOf() {
-		if(getRectangle().getMinX() < 0 || getRectangle().getMinY() < 0) {
-			return true;
-		}
+	public boolean isOutOf() {		
+		int upLimit = GameCanvas.UP_BOUND;
+		int downLimit = MainFrame.HEIGHT - GameCanvas.DOWN_BOUND;
 		
-		if(getRectangle().getMaxX() > MainFrame.WIDTH || getRectangle().getMaxY() > MainFrame.HEIGHT) {
-			return true;
-		}
-		
-		return false;
+		return getRectangle().getMinY() < upLimit || getRectangle().getMaxY() > downLimit;
 	}
 	
 	public void goUp() {

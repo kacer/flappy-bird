@@ -3,6 +3,7 @@ package cz.uhk.fim.pro2.game.model;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.util.Random;
 
 import com.sun.corba.se.impl.logging.POASystemException;
 
@@ -66,6 +67,10 @@ public class Tube {
 		);
 	}
 	
+	public static float getRandomHeight() {
+		return (new Random().nextFloat() * 300) + 200;
+	}
+	
 	public int getCenterY() {
 		return (int) (height - (GAP / 2.0));
 	}
@@ -96,6 +101,10 @@ public class Tube {
 
 	public void setPositionX(float positionX) {
 		this.positionX = positionX;
+	}
+
+	public void setHeight(float height) {
+		this.height = height;
 	}
 
 	public float getHeight() {
