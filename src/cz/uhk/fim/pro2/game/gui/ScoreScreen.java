@@ -7,10 +7,20 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import cz.uhk.fim.pro2.game.ScoreManager;
+
 public class ScoreScreen extends Screen {
 
 	public ScoreScreen(MainFrame mainFrame) {
 		super(mainFrame);
+		
+		for(int i = 0; i < ScoreManager.size(); i++) {
+			int score = ScoreManager.get(i);
+			
+			ScoreItem scoreItem = new ScoreItem(i + 1, score);
+			scoreItem.setBounds(50, 200 + i * 50, 300, 50);
+			add(scoreItem);
+		}
 		
 		JButton btnBack = new JButton("Back");
 		

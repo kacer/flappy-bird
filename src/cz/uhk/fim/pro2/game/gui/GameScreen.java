@@ -8,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.Timer;
+import javax.swing.plaf.ActionMapUIResource;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -96,7 +97,7 @@ public class GameScreen extends Screen implements WorldListener {
 		
 		add(gameCanvas);
 		
-		timer = new Timer(20, new ActionListener() {
+		timer = new Timer(15, new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -110,6 +111,7 @@ public class GameScreen extends Screen implements WorldListener {
 				
 				if(!bird.isAlive()) {
 					timer.stop();
+					mainFrame.setScreen(new FinishScreen(mainFrame, world));
 				}
 				
 				gameCanvas.repaint();
