@@ -3,6 +3,7 @@ package cz.uhk.fim.pro2.game.model;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 import com.sun.corba.se.impl.logging.POASystemException;
@@ -27,26 +28,29 @@ public class Tube {
 		flew = false;
 	}
 
-	public void paint(Graphics g) {
+	public void paint(Graphics g, BufferedImage image) {
 		g.setColor(Color.GREEN);
 		
 		Rectangle topRectangle = getTopRectangle();
 		Rectangle bottomRectangle = getBottomRectangle();
 		
-		g.fillRect(
-			(int) topRectangle.getX(), 
-			(int) topRectangle.getY(),
-			(int) topRectangle.getWidth(),
-			(int) topRectangle.getHeight() 
+		g.drawImage(
+				image, 
+				(int) topRectangle.getX(), 
+				(int) topRectangle.getY(),
+				(int) topRectangle.getWidth(),
+				(int) topRectangle.getHeight(),
+				null
 		);
 		
-		g.fillRect(
-			(int) bottomRectangle.getX(), 
-			(int) bottomRectangle.getY(),
-			(int) bottomRectangle.getWidth(),
-			(int) bottomRectangle.getHeight() 
-		);
-		
+		g.drawImage(
+				image, 
+				(int) bottomRectangle.getX(), 
+				(int) bottomRectangle.getY(),
+				(int) bottomRectangle.getWidth(),
+				(int) bottomRectangle.getHeight(),
+				null
+		);		
 	}
 	
 	public Rectangle getTopRectangle() {
@@ -114,9 +118,5 @@ public class Tube {
 	public Color getColor() {
 		return color;
 	}
-	
-	
-	
-	//TODO konstrukto, gettery, settery a toString()
 
 }
