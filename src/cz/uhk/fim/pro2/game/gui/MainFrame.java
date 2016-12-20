@@ -12,6 +12,7 @@ public class MainFrame extends JFrame {
 	public MainFrame() {
 		setSize(WIDTH, HEIGHT);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		setVisible(true);
 		setTitle("Flappy Bird");
 		setResizable(false);

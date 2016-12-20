@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.Timer;
 import javax.swing.plaf.ActionMapUIResource;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -30,8 +31,8 @@ public class GameScreen extends Screen implements WorldListener {
 	public GameScreen(MainFrame mainFrame) {
 		super(mainFrame);
 		
-		JButton btnBack = new JButton("Back");
-		JButton btnPause = new JButton("Pause");
+		JButton btnBack = new JButton(new ImageIcon("assets/back.png"));
+		JButton btnPause = new JButton(new ImageIcon("assets/pause.png"));
 		
 		btnBack.addActionListener(new ActionListener() {
 			
@@ -55,10 +56,8 @@ public class GameScreen extends Screen implements WorldListener {
 			}
 		});
 		
-		btnBack.setBounds(20, 20, 60, 60);
-		btnBack.setFont(new Font("Arial", Font.PLAIN, 11));
-		btnBack.setForeground(Color.BLUE);
-		btnPause.setBounds(400, 20, 60, 60);
+		btnBack.setBounds(5, 5, 40, 40);
+		btnPause.setBounds(430, 5, 40, 40);
 		
 		add(btnBack);
 		add(btnPause);

@@ -13,13 +13,13 @@ public class ScoreItem extends JPanel {
 		setLayout(null);
 		
 		lbIndex = new JLabel(index + ". ");
-		lbIndex.setFont(new Font("Arial", Font.BOLD, 40));
+		lbIndex.setFont(new Font("Arial", Font.BOLD, 30));
 		lbIndex.setBounds(0, 0, 100, 50);
 		
 		
 		lbScore = new JLabel(String.valueOf(score));
-		lbScore.setFont(new Font("Arial", Font.BOLD, 40));
-		lbScore.setBounds(50, 0, 200, 50);
+		lbScore.setFont(new Font("Arial", Font.BOLD, 30));
+		lbScore.setBounds(135, 0, 200, 50);
 		
 		add(lbIndex);
 		add(lbScore);

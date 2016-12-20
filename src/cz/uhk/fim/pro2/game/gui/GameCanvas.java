@@ -17,7 +17,7 @@ import cz.uhk.fim.pro2.game.model.World;
 
 public class GameCanvas extends Canvas {
 	
-	public static final int UP_BOUND = 100;
+	public static final int UP_BOUND = 50;
 	public static final int DOWN_BOUND = 150;
 	
 	private World world;
