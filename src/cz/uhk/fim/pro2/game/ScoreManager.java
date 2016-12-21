@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -23,14 +24,21 @@ public class ScoreManager {
 		List<Integer> scoreList = getAll();
 		scoreList.add(score);
 		
+		Collections.sort(scoreList, Collections.reverseOrder());
+		
 		try {
 			FileWriter fileWriter = new FileWriter(Game.SCORE_FILE);
 			
+			int i = 0;
 			for(int value : scoreList) {
+				if(i == 10) break;
+				
 				fileWriter.append(String.valueOf(value));
 				fileWriter.append(";");
 				fileWriter.append(new Date().toGMTString());
 				fileWriter.append("\n");
+				
+				i++;
 			}
 			
 			fileWriter.flush();
@@ -56,10 +64,14 @@ public class ScoreManager {
 				String[] values = line.split(";");
 				scoreList.add(Integer.valueOf(values[0]));
 			}
+			
+			bufferedReader.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Chyba pri nacitani");
 		}
+		
+		Collections.sort(scoreList, Collections.reverseOrder());
 		
 		return scoreList;
 	}

@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import cz.uhk.fim.pro2.game.gui.GameCanvas;
+import cz.uhk.fim.pro2.game.gui.GameScreen;
 import cz.uhk.fim.pro2.game.gui.MainFrame;
 
 
@@ -57,10 +57,10 @@ public class Bird {
 	}
 	
 	public void update(float deltaTime) {
-		positionY -= speed * deltaTime;
-		positionY += GRAVITY * deltaTime;
+		positionY -= World.MULTIPLIER * speed * deltaTime;
+		positionY += World.MULTIPLIER * GRAVITY * deltaTime;
 		
-		speed -= speed * deltaTime;
+		speed -= World.MULTIPLIER * speed * deltaTime;
 	}
 	
 	public boolean colliedWith(Tube tube) {
@@ -75,8 +75,8 @@ public class Bird {
 	}
 	
 	public boolean isOutOf() {		
-		int upLimit = GameCanvas.UP_BOUND;
-		int downLimit = MainFrame.HEIGHT - GameCanvas.DOWN_BOUND;
+		int upLimit = GameScreen.UP_BOUND;
+		int downLimit = MainFrame.HEIGHT - GameScreen.DOWN_BOUND;
 		
 		return getRectangle().getMinY() < upLimit || getRectangle().getMaxY() > downLimit;
 	}

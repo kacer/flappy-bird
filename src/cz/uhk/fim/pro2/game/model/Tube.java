@@ -72,7 +72,7 @@ public class Tube {
 	}
 	
 	public static float getRandomHeight() {
-		return (new Random().nextFloat() * 300) + 200;
+		return (new Random().nextFloat() * 300) + 300;
 	}
 	
 	public int getCenterY() {
@@ -88,7 +88,7 @@ public class Tube {
 	}
 	
 	public void update(float deltaTime) {
-		positionX -= World.SPEED * deltaTime;
+		positionX -= World.MULTIPLIER * World.SPEED * deltaTime;
 	}
 	
 	public boolean isFlew() {

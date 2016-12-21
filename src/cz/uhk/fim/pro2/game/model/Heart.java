@@ -41,7 +41,7 @@ public class Heart {
 	}
 	
 	public void update(float deltaTime) {
-		positionX -= World.SPEED * deltaTime;
+		positionX -= World.MULTIPLIER * World.SPEED * deltaTime;
 	}
 	
 	public static float getRandomY() {
